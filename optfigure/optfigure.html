@@ -1,0 +1,15 @@
+{{ $title := .Get "title"}}
+{{ $original := .Page.Resources.GetMatch (printf "*%s*.{png,jpg}" (.Get "src")) }}
+{{ with $original }}
+    <figure>
+        {{ if gt $original.Width 600 }}
+            {{ $image := .Resize "600x" }}
+            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $title }}">
+        {{ else }}
+            <img src="{{ $original.RelPermalink }}" width="{{ $original.Width }}" height="{{ $original.Height }}" alt="{{ $title }}">
+        {{ end }}
+        <figcaption>
+            {{ $title }}
+        </figcaption>
+      </figure>
+{{ end }}
