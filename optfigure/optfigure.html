@@ -4,9 +4,9 @@
     <figure>
         {{ if gt $original.Width 600 }}
             {{ $image := .Resize "600x" }}
-            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $title }}">
+            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $title }}" title="{{ $title }}">
         {{ else }}
-            <img src="{{ $original.RelPermalink }}" width="{{ $original.Width }}" height="{{ $original.Height }}" alt="{{ $title }}">
+            <img src="{{ $original.RelPermalink }}" width="{{ $original.Width }}" height="{{ $original.Height }}" alt="{{ $title }}" title="{{ $title }}">
         {{ end }}
         <figcaption>
             {{ $title }}
