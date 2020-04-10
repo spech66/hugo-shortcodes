@@ -20,3 +20,27 @@ Optfigure will search for NAME.png or NAME.jpg automatically. Only the filename 
 ```html
 {{< optfigure src="logo" title="Page Logo" >}}
 ```
+
+## MermaidJS
+
+Add [Mermaid](https://mermaid-js.github.io/mermaid/#/) graph support.
+
+The MermaidJS script is required for the shortcode to work. This should be included in the footer or end of body from the active theme. Adding a parameter to toggle this for every page is advised.
+The following snippet includes the script. To active this include `mermaid: true` in the frontmatter of a page.
+
+```
+{{ if (.Params.mermaid) }}
+<script async src="https://unpkg.com/mermaid@8.4.8/dist/mermaid.min.js"></script>
+{{ end }}
+```
+
+Add the graph markdown by surrounding it using hugos shortcode syntax.
+
+```
+{{<mermaid>}}
+graph LR
+    A --> B
+    B --> C
+    A --> C
+{{</mermaid>}}
+```
